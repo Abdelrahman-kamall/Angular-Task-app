@@ -9,7 +9,5 @@ import {Task} from '../../Interfaces/Task';
 export class TaskListComponent {
   tasks : Task[] = TASKS;
 
-  stringify(task :Task) : string{
-    return JSON.stringify(task);
-  }
+
 }

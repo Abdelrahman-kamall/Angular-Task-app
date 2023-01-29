@@ -1,0 +1,16 @@
+<div
+  [ngClass]="{ reminder: task.reminder }"
+  class="task"
+  (dblclick)="onDblClick()"
+  (click) = "onClick()"
+>
+  <h3>
+    {{ task.text }}
+    <fa-icon
+      (click)="onDelete()"
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faWindowClose"
+    ></fa-icon>
+  </h3>
+  <p>{{ task.date }}</p>
+</div>
