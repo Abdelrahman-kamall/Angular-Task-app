@@ -9,17 +9,8 @@
   border-left: 5px solid green;
 }
 
-div .row {
+.task h3 {
   display: flex;
   align-items: center;
-  position: relative;
-}
-
-div .col{
-    width: 100%;
-}
-
-fa-icon {
-  position: absolute;
-  left: 95%;
+  justify-content: space-between;
 }
