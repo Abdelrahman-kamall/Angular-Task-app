@@ -16,10 +16,10 @@ export class TaskItemComponent {
   timer : any;
 
   onClick(event : MouseEvent){
-    console.log(event.type);
+    //console.log(event.type);
     const id = (event.target as Element).id
     if(id === "div" || id === "h3" || id ==="p")
-      this.timer = setTimeout( () => {this.singleClick();}, 500);
+      this.timer = setTimeout( () => {this.singleClick();}, 300);
     else
       this.handleDelete();
       

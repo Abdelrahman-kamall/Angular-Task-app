@@ -1,0 +1,18 @@
+<form class="add-form" [formGroup] = "addForm" (ngSubmit) = "onSubmit()">
+    <div class="form-control">
+        <label for="text">First Name: </label>
+        <input id="text" type="text" formControlName="text" placeholder="Task Text">    
+    </div>
+  
+    <div class="form-control">
+        <label for="date">Last Name: </label>
+        <input id="date" type="text" formControlName="date" placeholder="Task Date">    
+    </div>
+
+    <div class="form-control form-control-check">
+        <label for="reminder">Set Reminder</label>
+        <input id = "reminder" type="checkbox" formControlName="reminder">    
+    </div>
+
+    <button class="btn btn-block" type="submit" >Add Task</button>
+</form>
