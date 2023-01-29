@@ -1,16 +1,25 @@
 <div
   [ngClass]="{ reminder: task.reminder }"
   class="task"
-  (dblclick)="onDblClick()"
-  (click) = "onClick()"
 >
-  <h3>
-    {{ task.text }}
-    <fa-icon
-      (click)="onDelete()"
-      [ngStyle]="{ color: 'red' }"
-      [icon]="faWindowClose"
-    ></fa-icon>
-  </h3>
-  <p>{{ task.date }}</p>
+    <div class = "row">
+        <div class = "col"
+        (click) = "onClick()"
+        (dblclick)="onDblClick()">
+            <h3 class = "row">
+                {{ task.text }}
+            </h3>
+            <p class = "row">
+                {{ task.date }}
+            </p>
+        </div>
+        <fa-icon
+            (click)="onDelete()"
+            [ngStyle]="{ color: 'red' }"
+            [icon]="faWindowClose"
+            class = "col"
+        ></fa-icon>
+        
+    </div>
+  
 </div>
