@@ -1,25 +1,16 @@
-<div
-  [ngClass]="{ reminder: task.reminder }"
-  class="task"
+<div id="div"
+  [ngClass] = "{ reminder: task.reminder }"
+  class = "task"
+  (click) = "onClick($event)"
+  (dblclick)="doubleClick($event)"
 >
-    <div class = "row">
-        <div class = "col"
-        (click) = "onClick()"
-        (dblclick)="onDblClick()">
-            <h3 class = "row">
-                {{ task.text }}
-            </h3>
-            <p class = "row">
-                {{ task.date }}
-            </p>
-        </div>
-        <fa-icon
-            (click)="onDelete()"
-            [ngStyle]="{ color: 'red' }"
-            [icon]="faWindowClose"
-            class = "col"
-        ></fa-icon>
-        
-    </div>
-  
+  <h3 id ="h3">
+    {{ task.text }}
+    <fa-icon
+      #icon
+      [ngStyle] = "{ color: 'red' }"
+      [icon] = "faWindowClose"
+    ></fa-icon>
+  </h3>
+  <p id = "p" *ngIf = "toggled">{{ task.date }}</p>
 </div>
