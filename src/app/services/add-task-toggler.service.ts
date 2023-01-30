@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AddTaskTogglerService {
     this.subject.next(this.show);
   }
 
-  toggler(){
-    return this.subject
+  toggler() : Observable<boolean>{
+    return this.subject.asObservable();
   }
 }
