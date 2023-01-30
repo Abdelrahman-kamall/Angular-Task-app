@@ -1,4 +1,7 @@
-<app-header title = "My Tasks"></app-header>
-<app-add-task></app-add-task>
-<app-task-item *ngFor = "let task of tasks" [task] = "task"></app-task-item>
+<div *ngIf = "tasks.length > 0; else zeroTasks">
+    <app-task-item *ngFor = "let task of tasks" [task] = "task"></app-task-item>
+</div>
+<ng-template #zeroTasks> There is No Tasks to represent <br> 
+    Add Tasks to be shown.
+</ng-template>
 
