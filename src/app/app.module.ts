@@ -18,7 +18,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 const routes : Routes = [
-  {path:'' , component: TaskListComponent}
+  {path:''  , component: TaskListComponent},
+  {path:'about' , component: AboutComponent},
+  {path:'help' , component: HelpComponent},
+  {path:'login' , component: LoginComponent},
 ];
 
 @NgModule({
