@@ -24,6 +24,7 @@ const routes : Routes = [
   {path:'about' , component: AboutComponent},
   {path:'help' , component: HelpComponent},
   {path:'login' , component: LoginComponent},
+  {path:'logout' , component: LoginComponent}
 ];
 
 @NgModule({
