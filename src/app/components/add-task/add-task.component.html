@@ -1,11 +1,14 @@
 <form *ngIf = "show" class="add-form" [formGroup] = "addForm" (ngSubmit) = "onSubmit()">
     <div class="form-control">
-        <label for="text">First Name: </label>
-        <input id="text" type="text" formControlName="text" placeholder="Task Text">    
+        <label for="text">Task </label>
+        <input id="text" type="text" formControlName="text" placeholder="Task Text">
+        <div *ngIf = "text.invalid && (text.dirty || text.touched)" class="alert alert-danger" >
+            <div *ngIf="text.errors!['required']"> Task text is required!</div>
+        </div>    
     </div>
   
     <div class="form-control">
-        <label for="date">Last Name: </label>
+        <label for="date">Date </label>
         <input id="date" type="text" formControlName="date" placeholder="Task Date">    
     </div>
 
