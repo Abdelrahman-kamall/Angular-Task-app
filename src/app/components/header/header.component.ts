@@ -1,4 +1,6 @@
 import { Component, Input , OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
+import {AddTaskTogglerService} from '../../services/add-task-toggler.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,13 @@ export class HeaderComponent {
   color : string = "green";
   text : string = "add";
   toggle! : boolean;
+  subscription! : Subscription;
+  
+  constructor(private togglerService :AddTaskTogglerService ){
+    this.subscription = togglerService.toggler().subscribe(
+      (nextVal) => {this.toggle = nextVal;}
+      );
+  }
 
   OnInit(){
     this.toggle = false;
@@ -17,9 +26,13 @@ export class HeaderComponent {
 
   onToggle(){
     //console.log("toggled");
-    this.toggle = !this.toggle;
+    this.togglerService.toggle();
     this.color = (this.toggle ? "red" : "green");
     this.text = (this.toggle ? "Close" : "Add");
+  }
+
+  OnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 }

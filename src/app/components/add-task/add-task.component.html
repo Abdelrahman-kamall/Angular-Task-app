@@ -1,4 +1,4 @@
-<form class="add-form" [formGroup] = "addForm" (ngSubmit) = "onSubmit()">
+<form *ngIf = "show" class="add-form" [formGroup] = "addForm" (ngSubmit) = "onSubmit()">
     <div class="form-control">
         <label for="text">First Name: </label>
         <input id="text" type="text" formControlName="text" placeholder="Task Text">    
