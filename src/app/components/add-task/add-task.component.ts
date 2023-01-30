@@ -31,10 +31,11 @@ export class AddTaskComponent {
   onSubmit(){
     if(this.addForm.invalid){
       this.alertErrors();
-      return;
+    }else{
+      //TODO actually add the task
     }
     //console.log(this.addForm.value);
-    //TODO actually add the task
+    
     this.addForm.reset();
   }
 

@@ -9,7 +9,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './pages/about/about.component';
+import { HelpComponent } from './pages/help/help.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
+const routes : Routes = [
+  {path:'' , component: TaskListComponent}
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +28,20 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     HeaderComponent,
     TaskListComponent,
     TaskItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    AboutComponent,
+    HelpComponent,
+    LoginComponent,
+    LogoutComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
