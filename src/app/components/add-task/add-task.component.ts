@@ -41,10 +41,10 @@ export class AddTaskComponent {
 
   alertErrors(){
     //console.log(this.addForm)
-    let errors : string = "";
+    let errors : string = "Form : Error \n";
     for(let formcontrol in this.addForm.controls)
       for(let error in this.addForm.controls[formcontrol].errors)
-        errors += error.toString();
+        errors += (formcontrol + " : " + error.toString() +"\n");
       alert(errors);
   }
 
