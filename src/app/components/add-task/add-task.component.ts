@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AddTaskTogglerService } from 'src/app/services/add-task-toggler.service';
+import { Task } from 'src/app/Interfaces/Task';
 
 @Component({
   selector: 'app-add-task',
@@ -12,6 +13,7 @@ export class AddTaskComponent {
   show : boolean = false;
   subscription! : Subscription;
   addForm! : FormGroup;
+  @Output() addTaskEventEmitter : EventEmitter<Task> = new EventEmitter();
 
   constructor(private togglerService : AddTaskTogglerService){
     this.subscription = togglerService.toggler().subscribe(
@@ -32,10 +34,9 @@ export class AddTaskComponent {
     if(this.addForm.invalid){
       this.alertErrors();
     }else{
-      //TODO actually add the task
+      let task : Task = this.addForm.value;
+      this.addTaskEventEmitter.emit(task);
     }
-    //console.log(this.addForm.value);
-    
     this.addForm.reset();
   }
 

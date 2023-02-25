@@ -26,4 +26,8 @@ export class TaskListComponent {
   onReminder(task: Task) : void{
     this.tasksService.putTask(task).subscribe();
   }
+
+  onAddTask(task: Task){
+    this.tasksService.postTask(task).subscribe(() => this.tasks.push(task));
+  }
 }

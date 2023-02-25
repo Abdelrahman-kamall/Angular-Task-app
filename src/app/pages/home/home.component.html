@@ -1,3 +1,3 @@
 <app-header title = "My Tasks"></app-header>
-<app-add-task></app-add-task>
+<app-add-task (addTaskEventEmitter) = "addTask($event)"></app-add-task>
 <app-task-list></app-task-list>
