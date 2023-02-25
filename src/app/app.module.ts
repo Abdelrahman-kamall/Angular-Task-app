@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/generic/button/button.component';
@@ -48,6 +49,7 @@ const routes : Routes = [
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
