@@ -18,4 +18,12 @@ export class TaskListComponent {
     this.tasksService.getTasks().subscribe((tasks : Task[]) => this.tasks = tasks);
   }
 
+  onDelete(task: Task) : void{
+    this.tasksService.deleteTask(task).subscribe(
+        () => this.tasks = this.tasks.filter((t) => t.id !== task.id));
+  }
+
+  onReminder(task: Task) : void{
+    this.tasksService.putTask(task).subscribe();
+  }
 }

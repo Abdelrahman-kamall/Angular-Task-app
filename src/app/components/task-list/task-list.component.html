@@ -1,5 +1,7 @@
 <div *ngIf = "tasks.length > 0; else zeroTasks">
-    <app-task-item *ngFor = "let task of tasks" [task] = "task"></app-task-item>
+    <app-task-item *ngFor = "let task of tasks" [task] = "task"
+         (deleteEventEmitter) = "onDelete(task)"
+         (reminderEventEmitter) = "onReminder(task)"></app-task-item>
 </div>
 <ng-template #zeroTasks> There is No Tasks to represent <br> 
     Add Tasks to be shown.

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } 
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } 
   from '@angular/core';
 import { Task } from 'src/app/Interfaces/Task';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
@@ -10,13 +10,14 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 })
 export class TaskItemComponent {
   @Input() task! : Task;
+  @Output() deleteEventEmitter : EventEmitter<Task> = new EventEmitter();
+  @Output() reminderEventEmitter : EventEmitter<Task> = new EventEmitter();
   
   toggled : boolean = false;
   faWindowClose = faWindowClose;
   timer : any;
 
   onClick(event : MouseEvent){
-    //console.log(event.type);
     const id = (event.target as Element).id
     if(id === "div" || id === "h3" || id ==="p")
       this.timer = setTimeout( () => {this.singleClick();}, 300);
@@ -39,11 +40,13 @@ export class TaskItemComponent {
     if(!(id === "div" || id === "h3" || id ==="p"))
       return;
 
-    //TODO set the reminder
+    this.task.reminder = !this.task.reminder;
+    this.reminderEventEmitter.emit(this.task);
+    
   }
 
   handleDelete(){
-    //TODO handle delete
+    this.deleteEventEmitter.emit(this.task);
   }
 
 }

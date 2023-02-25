@@ -25,7 +25,7 @@ export class TasksService {
     return this.httpClient.post<Task>(this.baseURL,task,httpOptions);
   }
 
-  putTask(id: string, task: Task): Observable<Task>{
+  putTask(task: Task): Observable<Task>{
     const url = `${this.baseURL}/${task.id}`;
     return this.httpClient.put<Task>(url,task,httpOptions);
   }
