@@ -28,6 +28,7 @@ export class TaskListComponent {
   }
 
   onAddTask(task: Task){
-    this.tasksService.postTask(task).subscribe(() => this.tasks.push(task));
+    // or else it will have no id untill i refresh and retrieve it again
+    this.tasksService.postTask(task).subscribe((taskWithId) => this.tasks.push(taskWithId));
   }
 }
