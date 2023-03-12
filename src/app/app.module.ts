@@ -18,14 +18,15 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginGuardGuard } from './guards/login-guard.guard';
 
 const routes : Routes = [
-  {path:''  , component: HomeComponent},
-  {path:'home'  , component: HomeComponent},
-  {path:'about' , component: AboutComponent},
-  {path:'help' , component: HelpComponent},
-  {path:'login' , component: LoginComponent},
-  {path:'logout' , component: LoginComponent}
+  {path:''  , redirectTo: "home", pathMatch: "full"},
+  {path:'home'  , component: HomeComponent, canActivate:[LoginGuardGuard]},
+  {path:'about' , component: AboutComponent, canActivate:[LoginGuardGuard]},
+  {path:'help' , component: HelpComponent, canActivate:[LoginGuardGuard]},
+  {path:'login' , component: LoginComponent, canActivate:[LoginGuardGuard]},
+  {path:'logout' , component: LogoutComponent}
 ];
 
 @NgModule({
